@@ -1,0 +1,128 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Supermercado Bom Preço</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #f5f5f5;
+        }
+        header {
+            background-color: #2ecc71;
+            color: white;
+            padding: 20px;
+            text-align: center;
+        }
+        nav {
+            background-color: #27ae60;
+            padding: 10px;
+            text-align: center;
+        }
+        nav a {
+            color: white;
+            text-decoration: none;
+            margin: 15px;
+            font-weight: bold;
+        }
+        nav a:hover {
+            text-decoration: underline;
+        }
+        .banner {
+            background: url("https://img.freepik.com/free-photo/shopping-cart-full-products-inside-supermarket_123827-28165.jpg") no-repeat center;
+            background-size: cover;
+            height: 300px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            font-size: 2em;
+            font-weight: bold;
+            text-shadow: 2px 2px 5px black;
+        }
+        .container {
+            padding: 30px;
+        }
+        .produtos {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+            gap: 20px;
+        }
+        .card {
+            background: white;
+            padding: 15px;
+            border-radius: 10px;
+            box-shadow: 0px 4px 8px rgba(0,0,0,0.1);
+            text-align: center;
+        }
+        .card img {
+            max-width: 100%;
+            border-radius: 10px;
+        }
+        .card h3 {
+            margin: 10px 0;
+        }
+        .card p {
+            color: #27ae60;
+            font-weight: bold;
+        }
+        footer {
+            background-color: #2ecc71;
+            color: white;
+            text-align: center;
+            padding: 15px;
+            margin-top: 30px;
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <h1>Supermercado Bom Preço</h1>
+        <p>Qualidade e economia para sua família!</p>
+    </header>
+
+    <nav>
+        <a href="#">Início</a>
+        <a href="#">Promoções</a>
+        <a href="#">Produtos</a>
+        <a href="#">Contato</a>
+    </nav>
+
+    <div class="banner">
+        🌟 Grandes Ofertas da Semana! 🌟
+    </div>
+
+    <div class="container">
+        <h2>Produtos em Promoção</h2>
+        <div class="produtos">
+            <div class="card">
+                <img src="https://img.freepik.com/free-photo/fresh-vegetables-basket_144627-17547.jpg" alt="Frutas e verduras">
+                <h3>Frutas e Verduras</h3>
+                <p>A partir de R$ 2,99/kg</p>
+            </div>
+            <div class="card">
+                <img src="https://img.freepik.com/free-photo/selection-raw-meat-white-paper_23-2147699480.jpg" alt="Carnes">
+                <h3>Carnes Frescas</h3>
+                <p>A partir de R$ 15,90/kg</p>
+            </div>
+            <div class="card">
+                <img src="https://img.freepik.com/free-photo/assortment-dairy-products_23-2148495317.jpg" alt="Laticínios">
+                <h3>Laticínios</h3>
+                <p>A partir de R$ 4,50</p>
+            </div>
+            <div class="card">
+                <img src="https://img.freepik.com/free-photo/close-up-pile-bread_23-2148355934.jpg" alt="Padaria">
+                <h3>Pães e Bolos</h3>
+                <p>A partir de R$ 3,00</p>
+            </div>
+        </div>
+    </div>
+
+    <footer>
+        <p>&copy; 2025 Supermercado Bom Preço - Todos os direitos reservados</p>
+    </footer>
+</body>
+</html>
