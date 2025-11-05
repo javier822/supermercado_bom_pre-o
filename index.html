@@ -1,128 +1,295 @@
 <!DOCTYPE html>
 <html lang="pt-BR">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Supermercado Bom Preço</title>
-    <style>
-        body {
-            font-family: Arial, sans-serif;
-            margin: 0;
-            padding: 0;
-            background-color: #f5f5f5;
-        }
-        header {
-            background-color: #2ecc71;
-            color: white;
-            padding: 20px;
-            text-align: center;
-        }
-        nav {
-            background-color: #27ae60;
-            padding: 10px;
-            text-align: center;
-        }
-        nav a {
-            color: white;
-            text-decoration: none;
-            margin: 15px;
-            font-weight: bold;
-        }
-        nav a:hover {
-            text-decoration: underline;
-        }
-        .banner {
-            background: url("https://img.freepik.com/free-photo/shopping-cart-full-products-inside-supermarket_123827-28165.jpg") no-repeat center;
-            background-size: cover;
-            height: 300px;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            color: white;
-            font-size: 2em;
-            font-weight: bold;
-            text-shadow: 2px 2px 5px black;
-        }
-        .container {
-            padding: 30px;
-        }
-        .produtos {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
-            gap: 20px;
-        }
-        .card {
-            background: white;
-            padding: 15px;
-            border-radius: 10px;
-            box-shadow: 0px 4px 8px rgba(0,0,0,0.1);
-            text-align: center;
-        }
-        .card img {
-            max-width: 100%;
-            border-radius: 10px;
-        }
-        .card h3 {
-            margin: 10px 0;
-        }
-        .card p {
-            color: #27ae60;
-            font-weight: bold;
-        }
-        footer {
-            background-color: #2ecc71;
-            color: white;
-            text-align: center;
-            padding: 15px;
-            margin-top: 30px;
-        }
-    </style>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Farmácia+ Online</title>
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    body {
+      font-family: "Poppins", sans-serif;
+      background-color: #0e0e0e;
+      color: white;
+      padding-bottom: 70px; /* espaço pro menu fixo */
+    }
+
+    header {
+      background-color: #e60023;
+      padding: 15px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+
+    .logo {
+      font-size: 1.8em;
+      font-weight: bold;
+      margin-right: 10px;
+    }
+
+    .search-box {
+      background: white;
+      border-radius: 25px;
+      display: flex;
+      align-items: center;
+      padding: 5px 10px;
+      width: 80%;
+      max-width: 400px;
+    }
+
+    .search-box input {
+      border: none;
+      outline: none;
+      flex: 1;
+      padding: 8px;
+      border-radius: 25px;
+      font-size: 1em;
+    }
+
+    .search-box button {
+      background: none;
+      border: none;
+      cursor: pointer;
+      color: #e60023;
+      font-size: 1.2em;
+    }
+
+    .banner {
+      background: #000;
+      text-align: center;
+      padding: 10px;
+      font-size: 1em;
+      animation: piscar 2s infinite alternate;
+    }
+
+    @keyframes piscar {
+      0% { color: #fff; }
+      100% { color: #ff5252; }
+    }
+
+    .produtos {
+      display: flex;
+      overflow-x: auto;
+      gap: 10px;
+      padding: 10px;
+    }
+
+    .produto {
+      background: #1c1c1c;
+      border-radius: 10px;
+      flex: 0 0 180px;
+      text-align: center;
+      padding: 10px;
+      transition: transform 0.3s;
+    }
+
+    .produto:hover {
+      transform: scale(1.05);
+    }
+
+    .produto img {
+      width: 100%;
+      border-radius: 10px;
+    }
+
+    .produto p {
+      font-size: 0.9em;
+      margin: 5px 0;
+    }
+
+    .produto span {
+      color: #00e676;
+      font-weight: bold;
+    }
+
+    .beneficios {
+      background: #000;
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+      gap: 10px;
+      text-align: center;
+      padding: 15px;
+    }
+
+    .beneficio {
+      background: #1c1c1c;
+      padding: 10px;
+      border-radius: 10px;
+      font-size: 0.9em;
+    }
+
+    .oferta {
+      background: #e60023;
+      padding: 20px;
+      text-align: center;
+    }
+
+    .oferta h3 {
+      margin-bottom: 10px;
+    }
+
+    .oferta img {
+      width: 150px;
+      border-radius: 10px;
+    }
+
+    /* ==== MENU INFERIOR ==== */
+    footer {
+      position: fixed;
+      bottom: 0;
+      left: 0;
+      width: 100%;
+      background: #1c1c1c;
+      display: flex;
+      justify-content: space-around;
+      align-items: center;
+      padding: 10px 0;
+      border-top: 1px solid #333;
+      z-index: 1000;
+    }
+
+    footer button {
+      background: none;
+      border: none;
+      color: white;
+      text-align: center;
+      font-size: 0.8em;
+      cursor: pointer;
+      flex: 1;
+      transition: color 0.3s, transform 0.3s;
+    }
+
+    footer button .icon {
+      display: block;
+      font-size: 1.3em;
+    }
+
+    footer button.active {
+      color: #00e676;
+      transform: scale(1.2);
+    }
+
+    footer button:hover {
+      color: #00e676;
+    }
+
+    /* ==== ANIMAÇÃO DE TRANSIÇÃO ==== */
+    .page {
+      display: none;
+      padding: 20px;
+      animation: fadeIn 0.5s;
+    }
+
+    .page.active {
+      display: block;
+    }
+
+    @keyframes fadeIn {
+      from { opacity: 0; transform: translateY(10px); }
+      to { opacity: 1; transform: translateY(0); }
+    }
+  </style>
 </head>
 <body>
-    <header>
-        <h1>Supermercado Bom Preço</h1>
-        <p>Qualidade e economia para sua família!</p>
-    </header>
-
-    <nav>
-        <a href="#">Início</a>
-        <a href="#">Promoções</a>
-        <a href="#">Produtos</a>
-        <a href="#">Contato</a>
-    </nav>
-
-    <div class="banner">
-        🌟 Grandes Ofertas da Semana! 🌟
+  <header>
+    <div class="logo">+</div>
+    <div class="search-box">
+      <input type="text" placeholder="O que você precisa?" />
+      <button>🔍</button>
     </div>
+  </header>
 
-    <div class="container">
-        <h2>Produtos em Promoção</h2>
-        <div class="produtos">
-            <div class="card">
-                <img src="https://img.freepik.com/free-photo/fresh-vegetables-basket_144627-17547.jpg" alt="Frutas e verduras">
-                <h3>Frutas e Verduras</h3>
-                <p>A partir de R$ 2,99/kg</p>
-            </div>
-            <div class="card">
-                <img src="https://img.freepik.com/free-photo/selection-raw-meat-white-paper_23-2147699480.jpg" alt="Carnes">
-                <h3>Carnes Frescas</h3>
-                <p>A partir de R$ 15,90/kg</p>
-            </div>
-            <div class="card">
-                <img src="https://img.freepik.com/free-photo/assortment-dairy-products_23-2148495317.jpg" alt="Laticínios">
-                <h3>Laticínios</h3>
-                <p>A partir de R$ 4,50</p>
-            </div>
-            <div class="card">
-                <img src="https://img.freepik.com/free-photo/close-up-pile-bread_23-2148355934.jpg" alt="Padaria">
-                <h3>Pães e Bolos</h3>
-                <p>A partir de R$ 3,00</p>
-            </div>
-        </div>
-    </div>
+  <section class="banner">
+    🩺 Compre 2 e Ganhe 60% OFF na 2ª unidade!
+  </section>
 
-    <footer>
-        <p>&copy; 2025 Supermercado Bom Preço - Todos os direitos reservados</p>
-    </footer>
+  <!-- PÁGINAS -->
+  <div id="home" class="page active">
+    <section class="produtos">
+      <div class="produto">
+        <img src="https://i.postimg.cc/Vk8bQ2Yt/dpa-ativa-kit-lenco-01-11-25-card1-340x504.png" />
+        <p><strong></strong><br /> <span></span></p>
+      </div>
+
+      <div class="produto">
+        <img src="https://i.postimg.cc/PqHJ9DQF/dpa-trade-colgate-bucal-03-11-25-card4-340x504.png" />
+        <p><strong></strong><br /> <span></span></p>
+      </div>
+
+      <div class="produto">
+        <img src=https://i.postimg.cc/bJDv2RyJ/dpa-trade-neo-vitaminac-03-11-25-card6-340x504.png" />
+        <p><strong></strong><br /> <span></span></p>
+      </div>
+    </section>
+
+    <section class="beneficios">
+      <div class="beneficio">🚚 Frete Grátis<br /><small>Acima de R$199</small></div>
+      <div class="beneficio">⚡ Entrega<br /><small>Em até 2 horas</small></div>
+      <div class="beneficio">🏪 Retire na Loja<br /><small>Perto de você</small></div>
+      <div class="beneficio">💳 Parcele<br /><small>Até 3x sem juros</small></div>
+      <div class="beneficio">📱 Baixe o App</div>
+      <div class="beneficio">💬 WhatsApp<br /><small>Fale conosco</small></div>
+    </section>
+
+    <section class="oferta">
+      <h3>🎯 Oferta do Dia</h3>
+      <p><strong>LEVE 2 PAGUE 1</strong></p>
+      <img src="https://i.postimg.cc/NfTpxhJR/782769-Locao-Hidratacao-Cetaphil-200ml-1.webp" />
+    </section>
+  </div>
+
+  <div id="conta" class="page">
+    <h2>Minha Conta</h2>
+    <p>Entre ou cadastre-se para acessar seus pedidos e cupons.</p>
+  </div>
+
+  <div id="carrinho" class="page">
+    <h2>🛒 Meu Carrinho</h2>
+    <p>Seu carrinho está vazio.</p>
+  </div>
+
+  <div id="ajuda" class="page">
+    <h2>Ajuda</h2>
+    <p>Fale com nosso atendimento via WhatsApp: (66) 999371308</p>
+  </div>
+
+  <div id="alertas" class="page">
+    <h2>Alertas</h2>
+    <p>Você não possui notificações no momento.</p>
+  </div>
+
+  <!-- MENU INFERIOR -->
+  <footer>
+    <button class="active" onclick="abrirPagina('home', this)">
+      <span class="icon">🏠</span>Home
+    </button>
+    <button onclick="abrirPagina('conta', this)">
+      <span class="icon">👤</span>Conta
+    </button>
+    <button onclick="abrirPagina('carrinho', this)">
+      <span class="icon">🛒</span>Carrinho
+    </button>
+    <button onclick="abrirPagina('ajuda', this)">
+      <span class="icon">❓</span>Ajuda
+    </button>
+    <button onclick="abrirPagina('alertas', this)">
+      <span class="icon">🔔</span>Alertas
+    </button>
+  </footer>
+
+  <script>
+    function abrirPagina(paginaId, botao) {
+      document.querySelectorAll(".page").forEach((p) => p.classList.remove("active"));
+      document.querySelector(`#${paginaId}`).classList.add("active");
+
+      document.querySelectorAll("footer button").forEach((b) => b.classList.remove("active"));
+      botao.classList.add("active");
+    }
+  </script>
 </body>
 </html>
